@@ -1,1 +1,3 @@
-# cropandweed-dataset
+# The CropAndWeed Dataset
+
+Coming soon!
