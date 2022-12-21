@@ -34,7 +34,8 @@ def map_dataset(bboxes_dir, labelids_dir, dataset_source, dataset_target):
     os.makedirs(labelids_target, exist_ok=True)
 
     bboxes_source = os.path.join(bboxes_dir, dataset_source)
-    for file_name in tqdm(os.listdir(bboxes_source), desc='mapping bounding-box annotations to target dataset'):
+    for file_name in tqdm(os.listdir(bboxes_source),
+                          desc=f'mapping bounding-box annotations to target dataset {dataset_target}'):
         with open(os.path.join(bboxes_source, file_name), 'r', newline='', encoding='utf-8') as anno_file:
             anno = csv.DictReader(anno_file,
                                   fieldnames=['left', 'top', 'right', 'bottom', 'label_id', 'stem_x', 'stem_y'])
@@ -65,7 +66,8 @@ def map_dataset(bboxes_dir, labelids_dir, dataset_source, dataset_target):
                     output_anno.writerow(row)
 
     labelids_source = os.path.join(labelids_dir, dataset_source)
-    for file_name in tqdm(os.listdir(labelids_source), desc='mapping semantic masks to target dataset'):
+    for file_name in tqdm(os.listdir(labelids_source),
+                          desc=f'mapping semantic masks to target dataset {dataset_target}'):
         mask = cv2.imread(os.path.join(labelids_source, file_name), cv2.IMREAD_GRAYSCALE)
         output_mask = np.zeros_like(mask)
         include = False
