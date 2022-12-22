@@ -1,9 +1,10 @@
 import argparse
-import io
 import os
+import shutil
+
 import requests
+import tarfile
 from tqdm import tqdm
-import zipfile
 from utilities import datasets
 from map_dataset import map_dataset
 
@@ -19,19 +20,19 @@ def parse_arguments():
 
 
 def setup(data_root, with_mapping):
-    print('source files will be available by January 2023')
-    return
-
-    url_prefix = 'https://vitro-testing.com/test-data/cropandweed-dataset/'
+    url_prefix = 'https://vitro-testing.com/wp-content/uploads/2022/12/'
 
     os.makedirs(data_root, exist_ok=True)
 
     for file_name in tqdm(
-            ['bboxes', 'images_part1of4', 'images_part2of4', 'images_part3of4', 'images_part4of4', 'labelIds',
-             'params'], desc='downloading and extracting zip files'):
-        response = requests.get(f'{url_prefix}{file_name}.zip', stream=True)
-        zip_archive = zipfile.ZipFile(io.BytesIO(response.content))
-        zip_archive.extractall(os.path.join(data_root, file_name.split('_')[0]))
+            ['cropandweed_annotations', 'cropandweed_images1of4', 'cropandweed_images2of4', 'cropandweed_images3of4',
+             'cropandweed_images4of4'], desc='downloading and extracting files'):
+        response = requests.get(f'{url_prefix}{file_name}.tar', stream=True)
+        archive = tarfile.open(fileobj=response.raw, mode='r|')
+        archive.extractall(data_root)
+
+    shutil.move(os.path.join(data_root, 'bboxes'), os.path.join(data_root, 'CropAndWeed'))
+    shutil.move(os.path.join(data_root, 'CropAndWeed'), os.path.join(data_root, 'bboxes', 'CropAndWeed'))
 
     if with_mapping:
         for dataset in datasets.DATASETS:

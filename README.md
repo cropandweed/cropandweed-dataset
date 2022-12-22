@@ -1,7 +1,6 @@
 # The CropAndWeed Dataset
 ![cnw_species_overview.png](./figures/cnw_species_overview.png "cnw_species_overview.png")
 This repository provides utility scripts for the CropAndWeed dataset, a large-scale dataset for Precision Agriculture, consisting of highly variable real-world images and multi-modal annotations for a rich set of crop and weed categories. 
-The dataset itself will be available by January 2023. 
 A thorough description can be found in the corresponding paper and supplementary material, which will be published at WACV 2023.
 
 
@@ -20,9 +19,8 @@ The names of all image and annotation files are prefixed either with _ave_ or _v
 The following 4-digit numbers specify the recording session, while the last 4 digits are the image id.  
 
 
-[//]: # (## Setup)
-
-[//]: # (Run [setup.py]&#40;cnw/setup.py&#41; to download and extract all dataset images and annotations. By default, the script creates mapped annotations for all pre-defined dataset variants.)
+## Setup
+Run [setup.py](cnw/setup.py) to download and extract all dataset images and annotations. By default, the script creates mapped annotations for all pre-defined dataset variants.
 
 
 ## Dataset Variants
