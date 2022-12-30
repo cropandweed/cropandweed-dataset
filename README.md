@@ -1,7 +1,7 @@
 # The CropAndWeed Dataset
 ![cnw_species_overview.png](./figures/cnw_species_overview.png "cnw_species_overview.png")
 This repository provides utility scripts for the CropAndWeed dataset, a large-scale dataset for Precision Agriculture, consisting of highly variable real-world images and multi-modal annotations for a rich set of crop and weed categories. 
-A thorough description can be found in the corresponding paper and supplementary material, which will be published at WACV 2023.
+A thorough description can be found in the corresponding [paper](https://openaccess.thecvf.com/content/WACV2023/papers/Steininger_The_CropAndWeed_Dataset_A_Multi-Modal_Learning_Approach_for_Efficient_Crop_WACV_2023_paper.pdf) and [supplementary material](https://openaccess.thecvf.com/content/WACV2023/supplemental/Steininger_The_CropAndWeed_Dataset_WACV_2023_supplemental.pdf) published at WACV 2023.
 
 
 ## Annotation Format
@@ -50,12 +50,12 @@ The CropAndWeed dataset is released to academic and non-academic entities for no
 If you use the CropAndWeed dataset for your research, please use the following BibTeX entry:
 
 ```BibTeX
-@InProceedings{Steininger2023CropAndWeedDataset,
+@InProceedings{Steininger_2023_WACV,
     author    = {Steininger, Daniel and Trondl, Andreas and Croonen, Gerardus and Simon, Julia and Widhalm, Verena},
-    title     = {The CropAndWeed Dataset: a Multi-Modal Learning Approach for Efficient Crop and Weed Manipulation},
+    title     = {The CropAndWeed Dataset: A Multi-Modal Learning Approach for Efficient Crop and Weed Manipulation},
     booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
     month     = {January},
     year      = {2023},
-    pages     = {tbd-tbd}
+    pages     = {3729-3738}
 }
 ```
