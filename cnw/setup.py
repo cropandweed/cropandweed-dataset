@@ -40,6 +40,9 @@ def setup(data_root, with_mapping):
                 map_dataset(os.path.join(data_root, 'bboxes'), os.path.join(data_root, 'labelIds'), 'CropAndWeed',
                             dataset)
 
+    for image_name in os.listdir('../images'):
+        shutil.copy(os.path.join('../images', image_name), os.path.join(data_root, 'images', image_name))
+
 
 def main():
     args = parse_arguments()
